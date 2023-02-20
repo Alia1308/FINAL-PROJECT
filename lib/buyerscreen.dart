@@ -33,7 +33,7 @@ class _BuyerScreenState extends State<BuyerScreen> {
   //for pagination
   // ignore: prefer_typing_uninitialized_variables
   var color;
-  int numofpage = 3, curpage = 3;
+  int numofpage= 0, curpage = 1;
   int numberofresult = 0;
 //for pagination
   @override
@@ -69,7 +69,7 @@ class _BuyerScreenState extends State<BuyerScreen> {
     return WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          appBar: AppBar(title: const Text("Buyers"), actions: [
+          appBar: AppBar(title: const Text("List of Homestay"), actions: [
             IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {
@@ -268,7 +268,7 @@ class _BuyerScreenState extends State<BuyerScreen> {
     );
     progressDialog.show();
     Timer(const Duration(seconds: 1), () {
-      if (seller.id != "0") {
+      if (seller.id != null) {
         progressDialog.dismiss();
         Navigator.push(
             context,
